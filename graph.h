@@ -4,7 +4,7 @@
  *       Filename:  graph.h
  *
  *    Description:  This file contains the definition of all structures required
- * to create a NetworkGraph
+ * 					  to create a NetworkGraph
  *
  *        Version:  1.0
  *        Created:  Thursday 24 April 2025 19:12:17  CAT
