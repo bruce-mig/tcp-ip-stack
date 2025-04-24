@@ -41,7 +41,7 @@
 #define IF_NAME_SIZE 16
 #define MAX_INTF_PER_NODE 10
 
-/*Forward Declarations*/
+/* Forward Declarations */
 typedef struct node_ node_t;
 typedef struct link_ link_t;
 
@@ -69,6 +69,7 @@ struct node_ {
    int udp_sock_fd;
    node_nw_prop_t node_nw_prop;
 };
+
 GLTHREAD_TO_STRUCT(graph_glue_to_node, node_t, graph_glue);
 
 typedef struct graph_ {
@@ -85,7 +86,7 @@ void insert_link_between_two_nodes(node_t *node1, node_t *node2,
                                    char *from_if_name, char *to_if_name,
                                    unsigned int cost);
 
-/*Helper functions*/
+/* Helper functions */
 static inline node_t *get_nbr_node(interface_t *interface) {
 
    assert(interface->att_node);
