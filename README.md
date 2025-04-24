@@ -1,6 +1,6 @@
 # TCP/IP Stack
 
-Implementing Layer 2-5 of  TCP/IP Stack in C.
+Implementing Layer 2-4 of the TCP/IP Model in C from scratch.
 
 -  Build a MultiNode Topology Emulation of Routers and Switches
 - Implement DataLink Layer (L2 routing), including ARP
