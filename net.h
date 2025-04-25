@@ -48,7 +48,7 @@ typedef struct ip_add_ {
 } ip_add_t;
 
 typedef struct mac_add_ {
-   unsigned char mac[6];
+   unsigned char mac[48];
 } mac_add_t;
 #pragma pack(pop)
 
