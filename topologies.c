@@ -29,9 +29,6 @@
  *
  * =====================================================================================
  */
-/* Visit my Website for more wonderful assignments and projects :
- * www.csepracticals.com
- * if above URL dont work, then try visit : https://csepracticals.com*/
 
 #include "Layer2/layer2.h"
 #include "comm.h"
