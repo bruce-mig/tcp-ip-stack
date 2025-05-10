@@ -100,6 +100,9 @@ bool_t node_set_intf_ip_address(node_t *node, char *local_if, char *ip_addr,
 bool_t node_unset_intf_ip_address(node_t *node, char *local_if) {
 
    interface_t *interface = get_node_if_by_name(node, local_if);
+   if (!interface)
+      assert(0);
+
    memset(IF_IP(interface), 0, 16);
    interface->intf_nw_props.mask = 0;
    interface->intf_nw_props.is_ipadd_config = FALSE;
