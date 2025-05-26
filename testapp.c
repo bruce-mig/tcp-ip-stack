@@ -32,7 +32,7 @@
  * =====================================================================================
  */
 
-#include "CommandParser/libcli.h"
+#include "cmd-parser/libcli.h"
 #include "graph.h"
 #include <stdio.h>
 
