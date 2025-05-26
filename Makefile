@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-g
-TARGET:test.exe CommandParser/libcli.a pkt_gen.exe
-LIBS=-lpthread -L ./CommandParser -lcli
+TARGET:test.exe cmd-parser/libcli.a pkt_gen.exe
+LIBS=-lpthread -L ./cmd-parser -lcli
 OBJS=gluethread/glthread.o \
 		  graph.o 		   \
 		  topologies.o	   \
@@ -24,7 +24,7 @@ pkt_gen.exe:pkt_gen.o
 pkt_gen.o:pkt_gen.c
 	${CC} ${CFLAGS} -c pkt_gen.c -o pkt_gen.o
 
-test.exe:testapp.o ${OBJS} CommandParser/libcli.a
+test.exe:testapp.o ${OBJS} cmd-parser/libcli.a
 	${CC} ${CFLAGS} testapp.o ${OBJS} -o test.exe ${LIBS}
 
 testapp.o:testapp.c
@@ -75,8 +75,8 @@ nwcli.o:nwcli.c
 utils.o:utils.c
 	${CC} ${CFLAGS} -c -I . utils.c -o utils.o
 
-CommandParser/libcli.a:
-	(cd CommandParser; make)
+cmd-parser/libcli.a:
+	(cd cmd-parser; make)
 clean:
 	rm -f *.o
 	rm -f gluethread/glthread.o
@@ -91,5 +91,5 @@ all:
 
 cleanall:
 	make clean
-	(cd CommandParser; make clean)
+	(cd cmd-parser; make clean)
 	rm -f WheelTimer/WheelTimer.o
