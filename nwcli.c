@@ -31,8 +31,8 @@
  * =====================================================================================
  */
 
-#include "cmd-parser/cmdtlv.h"
-#include "cmd-parser/libcli.h"
+#include "cmd_parser/cmdtlv.h"
+#include "cmd_parser/libcli.h"
 #include "cmdcodes.h"
 #include "graph.h"
 #include <stdio.h>
