@@ -1,5 +1,5 @@
-#include "cmd-parser/cmdtlv.h"
-#include "cmd-parser/libcli.h"
+#include "cmd_parser/cmdtlv.h"
+#include "cmd_parser/libcli.h"
 
 #define CMDODE_SHOW_NODE 1
 #define CMDODE_SHOW_NODE_LOOPBACK 2

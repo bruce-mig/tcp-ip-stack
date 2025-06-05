@@ -1,6 +1,6 @@
-# cmd-parser
+# cmd_parser
 
-**cmd-parser** is a C library that provides a Linux-like command-line interface (CLI) for custom C applications. It allows developers to easily integrate an interactive CLI into their applications, enabling users to execute commands and interact with the backend logic.
+**cmd_parser** is a C library that provides a Linux-like command-line interface (CLI) for custom C applications. It allows developers to easily integrate an interactive CLI into their applications, enabling users to execute commands and interact with the backend logic.
 
 ## Features
 
@@ -76,7 +76,7 @@ Inside the REPL, input `.` to show the available commands.
 Show Help
 
 ```bash
-root@cmd-parser> $ show help
+root@cmd_parser> $ show help
 Parse Success.
 Welcome to Help Wizard
 ========================
@@ -96,14 +96,14 @@ Welcome to Help Wizard
                       Author : Bruce Migeri, Software Engineer
                       Visit : github.com/bruce-mig for more projects
 
-root@cmd-parser> $
+root@cmd_parser> $
 ```
 
 Show Available Commands
 
 ```bash
 run - 'show help' cmd to learn more
-root@cmd-parser> $ .
+root@cmd_parser> $ .
 Parse Success.
 ROOT show help
 ROOT show history <N>
@@ -136,7 +136,7 @@ ROOT cd
 Show IPv4 IGMP groups per vLAN id
 
 ```bash
-root@cmd-parser> $ show ip igmp groups 37 vlan 4005
+root@cmd_parser> $ show ip igmp groups 37 vlan 4005
 Parse Success.
 cmd code = -1
 tlv->leaf_type = IPV4
@@ -152,7 +152,7 @@ Config mtrace source and destination by group id
 
 
 ```bash
-root@cmd-parser> $ config mtrace source 192.168.0.1 destination 172.16.0.1 group 37
+root@cmd_parser> $ config mtrace source 192.168.0.1 destination 172.16.0.1 group 37
 Parse Success.
 cmd code = 3
 tlv->leaf_type = IPV4
@@ -176,7 +176,7 @@ tlv->value     = 37
 gcc -g -c main1.c -o main1.o
 
 # Linking with libcli to create executable
-gcc -g main1.o -o main1.exe -L ./cmd-parser/ -lcli
+gcc -g main1.o -o main1.exe -L ./cmd_parser/ -lcli
 ```
 
 The first command compiles the `main1.c`to create object file `main1.o`. `–I` option tells compiler where to find header files included in `main1.c`.  

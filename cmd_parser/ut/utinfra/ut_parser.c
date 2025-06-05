@@ -43,7 +43,7 @@ void ut_parser_init() {
 
    struct mq_attr attr;
 
-   ut_log_file = fopen("cmd-parser/ut/utinfra/ut_log_file.txt", "w");
+   ut_log_file = fopen("cmd_parser/ut/utinfra/ut_log_file.txt", "w");
    assert(ut_log_file);
 
    attr.mq_flags = 0;
