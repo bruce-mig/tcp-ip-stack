@@ -41,6 +41,7 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/select.h> // for fd_set, select
 #include <sys/socket.h>
 #include <unistd.h> // for close
 
@@ -53,8 +54,15 @@ static int _send_pkt_out(int sock_fd, char *pkt_data, unsigned int pkt_size,
    struct hostent *host = (struct hostent *)gethostbyname("127.0.0.1");
    dest_addr.sin_family = AF_INET;
    dest_addr.sin_port = dst_udp_port_no;
-   dest_addr.sin_addr = *((struct in_addr *)host->h_addr);
-
+   dest_addr.sin_addr = *((struct in_addr *)host->h_addr_list[0]);
+   /*
+    * Note: The 'h_addr' field in struct hostent is deprecated.
+    * Use 'h_addr_list[0]' instead.
+    * Reference:
+    * - POSIX.1-2001 marks 'h_addr' as obsolete, see:
+    *   https://man7.org/linux/man-pages/man3/gethostbyname.3.html
+    * - The field 'h_addr' is equivalent to 'h_addr_list[0]'.
+    */
    rc = sendto(sock_fd, pkt_data, pkt_size, 0, (struct sockaddr *)&dest_addr,
                sizeof(struct sockaddr));
 
