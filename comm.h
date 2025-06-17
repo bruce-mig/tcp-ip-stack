@@ -42,7 +42,7 @@ typedef struct interface_ interface_t;
 int send_pkt_to_self(char *pkt, unsigned int pkt_size, interface_t *interface);
 
 /* API to send the packet out of the interface.
- * Nbr node must recei ve the packet on other end
+ * Nbr node must receive the packet on other end
  * of the link*/
 int send_pkt_out(char *pkt, unsigned int pkt_size, interface_t *interface);
 
