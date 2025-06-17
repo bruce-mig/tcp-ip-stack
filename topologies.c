@@ -345,7 +345,7 @@ graph_t *linear_3_node_topo() {
 
 #endif
 
-   graph_t *topo = create_new_graph("3 node linerar topo");
+   graph_t *topo = create_new_graph("3 node linear topo");
    node_t *R1 = create_graph_node(topo, "R1");
    node_t *R2 = create_graph_node(topo, "R2");
    node_t *R3 = create_graph_node(topo, "R3");
