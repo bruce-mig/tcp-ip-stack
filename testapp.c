@@ -51,7 +51,8 @@ int main(int argc, char **argv) {
 
    nw_init_cli();
    show_help_handler(0, 0, MODE_UNKNOWN);
-   topo = build_square_topo();
+   // topo = build_square_topo();
+   topo = build_linear_topo();
    start_shell();
    return 0;
 }
