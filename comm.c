@@ -63,6 +63,7 @@ static int _send_pkt_out(int sock_fd, char *pkt_data, unsigned int pkt_size,
     *   https://man7.org/linux/man-pages/man3/gethostbyname.3.html
     * - The field 'h_addr' is equivalent to 'h_addr_list[0]'.
     */
+
    rc = sendto(sock_fd, pkt_data, pkt_size, 0, (struct sockaddr *)&dest_addr,
                sizeof(struct sockaddr));
 
@@ -133,6 +134,7 @@ static void *_network_start_pkt_receiver_thread(void *arg) {
 
    int addr_len = sizeof(struct sockaddr);
 
+   // initialize to zero
    FD_ZERO(&active_sock_fd_set);
    FD_ZERO(&backup_sock_fd_set);
 
@@ -148,6 +150,7 @@ static void *_network_start_pkt_receiver_thread(void *arg) {
       if (node->udp_sock_fd > sock_max_fd)
          sock_max_fd = node->udp_sock_fd;
 
+      // copy node->udp_sock_fd into backup_sock_fd_set
       FD_SET(node->udp_sock_fd, &backup_sock_fd_set);
    }
    ITERATE_GLTHREAD_END(&topo->node_list, curr);
@@ -162,6 +165,8 @@ static void *_network_start_pkt_receiver_thread(void *arg) {
 
          node = graph_glue_to_node(curr);
 
+         // check if node->udp_sock_fd has been activated (received data) in set
+         // active_sock_fd_set
          if (FD_ISSET(node->udp_sock_fd, &active_sock_fd_set)) {
 
             memset(recv_buffer, 0, MAX_PACKET_BUFFER_SIZE);
