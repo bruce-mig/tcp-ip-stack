@@ -60,7 +60,7 @@ typedef struct ethernet_hdr_ {
    mac_add_t src_mac;
    unsigned short type;
    char payload[248]; /*Max allowed 1500*/
-   unsigned int FCS;
+   unsigned int FCS; /* Frame Check Sequence or Cyclic Redundancy Check (CRC) */
 } ethernet_hdr_t;
 
 #pragma pack(pop)
